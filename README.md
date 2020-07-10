@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/infrastructr/ansible-role-rancher-cluster.svg?branch=master)](https://travis-ci.org/infrastructr/ansible-role-rancher-cluster)
 [![Ansible Galaxy](https://img.shields.io/badge/role-infrastructr.rancher_cluster-blue.svg)](https://galaxy.ansible.com/infrastructr/rancher_cluster/)
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/infrastructr/ansible-role-rancher-cluster)](https://galaxy.ansible.com/infrastructr/rancher_cluster)
-[![Ansible Galaxy Downloads](https://img.shields.io/ansible/role/d/48976.svg?color=blue)](https://galaxy.ansible.com/infrastructr/rancher_cluster/)
+[![Ansible Galaxy Downloads](https://img.shields.io/ansible/role/d/49672.svg?color=blue)](https://galaxy.ansible.com/infrastructr/rancher_cluster/)
 
 # Ansible Role: Rancher Cluster
 
