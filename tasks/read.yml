@@ -1,0 +1,3 @@
+- name: Check if cluster ID is present
+  set_fact:
+    create_cluster: "{{ lookup('vars', 'rancher_cluster_' + item.name + '_id', default=undefined) is undefined }}"

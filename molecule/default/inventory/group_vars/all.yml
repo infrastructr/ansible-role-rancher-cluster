@@ -1,0 +1,7 @@
+ansible_python_interpreter: /usr/bin/python3.7
+
+rancher_cluster_base_group: paas
+rancher_clusters:
+  - name: foo
+    group: paas_cluster
+    network_provider: weave

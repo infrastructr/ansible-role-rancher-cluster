@@ -1,0 +1,12 @@
+---
+rancher_cluster_base_group: paas
+rancher_cluster_master_group: paas_master
+rancher_cluster_master_host: "{{ hostvars[groups[rancher_cluster_master_group][0]]['ansible_host'] }}"
+rancher_cluster_master_url: "https://{{ rancher_cluster_master_host }}"
+rancher_cluster_generated_base_config: "{{ inventory_dir }}/group_vars/{{ rancher_cluster_base_group }}/rancher_generated.yml"
+rancher_cluster_network_provider_default: weave
+rancher_cluster_validate_certs: no
+rancher_clusters:
+  - name: foo
+    group: paas_cluster
+    network_provider: weave

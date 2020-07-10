@@ -1,0 +1,5 @@
+---
+- include_tasks: read.yml
+
+- include_tasks: create.yml
+  when: create_cluster

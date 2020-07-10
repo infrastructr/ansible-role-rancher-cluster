@@ -1,0 +1,4 @@
+---
+- include_tasks: cluster.yml
+  tags: [rancher, rancher-cluster]
+  with_items: "{{ rancher_clusters }}"

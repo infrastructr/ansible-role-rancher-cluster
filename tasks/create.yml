@@ -1,0 +1,41 @@
+- name: Create cluster
+  uri:
+    url: '{{ rancher_cluster_master_url }}/v3/cluster'
+    method: POST
+    body: {"type":"cluster", "nodes":[], "rancherKubernetesEngineConfig":{"ignoreDockerVersion":true, "network":{"type":"networkConfig", "plugin":"{{ item.network_provider | default(rancher_cluster_network_provider_default) }}"}}, "name":"{{ item.name }}"}
+    status_code: 201
+    body_format: json
+    headers:
+      Authorization: "Bearer {{ rancher_api_token }}"
+    validate_certs: "{{ rancher_cluster_validate_certs }}"
+  register: cluster_result
+
+- name: Set cluster ID file path
+  set_fact:
+    tmp_rancher_cluster_id: "{{ cluster_result.json.id }}"
+  delegate_to: localhost
+  run_once: yes
+
+- name: Store cluster ID for master access
+  lineinfile:
+    path: "{{ rancher_cluster_generated_base_config }}"
+    regexp: '^rancher_cluster_{{ item.name }}_id:'
+    line: "rancher_cluster_{{ item.name }}_id: '{{ tmp_rancher_cluster_id }}'"
+    create: yes
+  delegate_to: localhost
+
+- name: Store cluster ID for node access
+  lineinfile:
+    path: "{{ inventory_dir }}/group_vars/{{ item.group }}/rancher_generated.yml"
+    regexp: '^rancher_cluster_id:'
+    line: "rancher_cluster_id: '{{ tmp_rancher_cluster_id }}'"
+    create: yes
+  delegate_to: localhost
+
+- name: Store cluster group for node access
+  lineinfile:
+    path: "{{ inventory_dir }}/group_vars/{{ item.group }}/rancher_generated.yml"
+    regexp: '^rancher_cluster_group:'
+    line: "rancher_cluster_group: '{{ item.group }}'"
+    create: yes
+  delegate_to: localhost
