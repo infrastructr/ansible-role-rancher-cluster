@@ -57,7 +57,10 @@ Default network provider.
       roles:
         - geerlingguy.pip
         - geerlingguy.docker 
-        - infrastructr.rancher_master       
+        
+    - hosts: paas_master
+      roles:
+        - infrastructr.rancher_master
         - infrastructr.rancher_cluster
 
 ## Development
