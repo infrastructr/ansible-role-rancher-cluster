@@ -46,6 +46,8 @@ Default network provider.
 
 - [geerlingguy.pip](https://galaxy.ansible.com/geerlingguy/pip)
 - [geerlingguy.docker](https://galaxy.ansible.com/geerlingguy/docker)
+- [infrastructr.rancher_master](https://galaxy.ansible.com/infrastructr/rancher_master)
+- [infrastructr.rancher_cluster](https://galaxy.ansible.com/infrastructr/rancher_cluster)
 
 ## Example Playbook
 
