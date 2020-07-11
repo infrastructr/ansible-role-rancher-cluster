@@ -16,5 +16,4 @@ galaxy_info:
         - all
   galaxy_tags:
     - Rancher
-dependencies:
-  - infrastructr.rancher_master
+dependencies: []
